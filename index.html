@@ -27,6 +27,42 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style type="text/css">
+    
+  
+  
+.cursor{
+  cursor: none;
+}
+
+.cursor{
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  border: 8px solid #800000;;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .1s;
+}
+
+.cursor2{
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .15s;
+}
+
+
+  </style>
 
   <!-- =======================================================
   * Template Name: Gp - v2.1.0
@@ -34,10 +70,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
 </head>
 
-<body>
-
+<body>  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
@@ -60,6 +96,8 @@
       </nav><!-- .nav-menu -->
 
       <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      
+
 
     </div>
   </header><!-- End Header -->
@@ -510,6 +548,7 @@ SOCIAL MEDIA MARKETING
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -524,6 +563,19 @@ SOCIAL MEDIA MARKETING
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+   <div class="cursor"></div>
+  <div class="cursor2"></div>
+<script>
+    var cursor = document.querySelector(".cursor");
+    var cursor2 = document.querySelector(".cursor2");
+    document.addEventListener("mousemove",function(e){
+      cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+    });
+  </script>
+  <script type="text/javascript">
+    document.body.style.cursor = 'none';
+</script>
+
 
 </body>
 
