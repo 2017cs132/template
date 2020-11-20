@@ -35,7 +35,7 @@
   cursor: none;
 }
 
-.cursor{
+.cursor1{
   position: fixed;
   width: 70px;
   height: 70px;
@@ -77,7 +77,7 @@
 $(document).ready(function(){
     $("button").click(function(){
          $("body").click(function(){
-        $(this).toggleClass("cursor cursor2");
+        $(this).toggleClass("cursor1 cursor2");
     });
 });
 </script>
@@ -572,13 +572,13 @@ SOCIAL MEDIA MARKETING
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-   <div class="cursor"></div>
+   <div class="cursor1"></div>
   <div class="cursor2"></div>
 <script>
-    var cursor = document.querySelector(".cursor");
+    var cursor1 = document.querySelector(".cursor1");
     var cursor2 = document.querySelector(".cursor2");
     document.addEventListener("mousemove",function(e){
-      cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+      cursor1.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
     });
   </script>
   <script type="text/javascript">
