@@ -1,5 +1,8 @@
+ 
+  
 <!DOCTYPE html>
 <html lang="en">
+  
 
 <head>
   <meta charset="utf-8">
@@ -35,7 +38,7 @@
 
     
     
-  
+
   
 .cursor{
   cursor: none;
@@ -84,9 +87,10 @@
 <body id="body">  
   <!-- ======= Header ======= -->
 
+  
 
 
-<body > 
+  
     
     <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
@@ -115,6 +119,9 @@
         <canvas class="cursor cursor--canvas" resize></canvas>
 
       <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      <button type="button" onclick="test()" id="small">small</button>
+      <button type="button" onclick="test2()" id="normal">normal</button>
+      <button type="button" onclick="test3()"id="large">large</button>
           <button type="button" id="cursor-btn">Add Cursor Annimation</button>
       <a href="#" id="toggle-cursor" class="get-started-btn scrollto">Change Cursor</a>
        
@@ -552,6 +559,24 @@ SOCIAL MEDIA MARKETING
         </div>
       </div>
     </div>
+      <script>
+   
+  
+  function test(e)
+{
+ body.style.fontSize = "10px";	
+
+}
+        
+        function test2(e)
+{
+  body.style.fontSize = "14px";
+}
+        function test3()
+        {
+         body.style.fontSize = "20px"; 
+        }
+    </script>
 
     <div class="container">
       <div class="copyright">
