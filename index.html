@@ -69,6 +69,47 @@
   transform: translate(-50%, -50%);
   transition: .15s;
 }
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 
   </style>
@@ -119,8 +160,16 @@
         <canvas class="cursor cursor--canvas" resize></canvas>
 
       <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      <div class="dropdown">
+  <button class="dropbtn">FontStyle</button>
+  <div class="dropdown-content">
+    <button type="button" onclick="test4()" id="4">Georgia</button><br>
+    <button type="button" onclick="test5()" id="5">Tahoma</button><br>
+    <button type="button" onclick="test6()" id="6">TimesNewRoman</button>
+  </div>
+</div>
       <button type="button" onclick="test()" id="small">small</button>
-      <button type="button" onclick="test2()" id="normal">normal</button>
+      <button type="button" onclick="test2()" id="normal">norml</button>
       <button type="button" onclick="test3()"id="large">large</button>
           <button type="button" id="cursor-btn">Add Cursor Annimation</button>
       <a href="#" id="toggle-cursor" class="get-started-btn scrollto">Change Cursor</a>
@@ -570,12 +619,28 @@ SOCIAL MEDIA MARKETING
         
         function test2(e)
 {
-  body.style.fontSize = "14px";
+  body.style.fontSize = "30px";
 }
-        function test3()
-        {
-         body.style.fontSize = "20px"; 
-        }
+
+		function test3(e)
+		{
+		
+		body.style.fontSize="50px"
+		}
+ function test4(e)
+{
+  body.style.fontFamily = "Georgia";
+}
+ function test5(e)
+{
+  body.style.fontFamily = "Tahoma";
+}
+ function test6(e)
+{
+  body.style.fontFamily = "TimesNewRoman";
+}
+        
+		
     </script>
 
     <div class="container">
