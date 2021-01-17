@@ -28,9 +28,13 @@ function ScreenReader() {
     currentIndex = 0;
     domElements = getDomElements();
 
+    console.log(domElements);
+
     isEnabled = true;
-    setTabIndex(domElements[0]);
+    setTabIndex();
     setReaderCurrentState(readerStates.READING);
+    jumpToSpeakableElems();
+
     speak(domElements[currentIndex]);
   }
 
@@ -67,17 +71,17 @@ function ScreenReader() {
     return $("*").slice(bodyIndex + 1, srcIndex);
   }
 
-  function setTabIndex(elem) {
+  function setTabIndex() {
+    const elem = getCurrentElem();
     $(elem).attr("tabindex", 0);
   }
 
   function speak(elem) {
-    //   console.log(elem.children);
-    console.log(elem);
-    setTabIndex(elem);
+    setTabIndex();
     $(elem).focus();
-    highlight(elem);
-    utterence = new SpeechSynthesisUtterance(getMsg(elem));
+    highlight();
+    generateSound();
+    utterence = new SpeechSynthesisUtterance(getMsg());
     speechSynthesis.speak(utterence);
     utterence.onend = () => {
       if (currentState === readerStates.READING) {
@@ -88,17 +92,13 @@ function ScreenReader() {
     };
   }
 
-  function getMsg(elem) {
-    let msg = "";
-    if (elem.children.length === 0) {
-      msg = $(elem).text();
-    }
-
-    return msg;
+  function getMsg() {
+    return getTextWithoutAnyChildNodeText();
   }
 
   function nextElement() {
     ++currentIndex;
+    jumpToSpeakableElems();
     if (domElements[currentIndex]) speak(domElements[currentIndex]);
   }
 
@@ -106,14 +106,43 @@ function ScreenReader() {
     currentState = state;
   }
 
-  function highlight(elem) {
-    $(".border").removeClass("border");
-    $(elem).addClass("border");
+  function generateSound() {
+    const sound = new Audio("./screen-reader/element_sound.mp3");
+    sound.play();
+  }
+
+  function highlight() {
+    const elem = getCurrentElem();
+    $(".screen-reader-border").removeClass("screen-reader-border");
+    $(elem).addClass("screen-reader-border");
   }
 
   function removingStyleWhenReaderStops() {
     $(domElements[currentIndex]).blur();
-    $(".border").removeClass("border");
+    $(".screen-reader-border").removeClass("screen-reader-border");
+  }
+
+  function jumpToSpeakableElems() {
+    while (true) {
+      const current = getCurrentElem();
+
+      if (!current) break;
+
+      const text = getTextWithoutAnyChildNodeText();
+
+      if (text) break;
+
+      ++currentIndex;
+    }
+  }
+
+  function getTextWithoutAnyChildNodeText() {
+    const currentElem = getCurrentElem();
+    return $(currentElem).clone().children().remove().end().text().trim();
+  }
+
+  function getCurrentElem() {
+    return domElements[currentIndex];
   }
 
   return { readFromStart, readFromPrev, readFromNext, stop, isReaderEnabled };
