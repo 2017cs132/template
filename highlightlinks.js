@@ -1,3 +1,5 @@
+function test7(e)
+{
 let link = document.getElementsByTagName('a');
 
 // loop through it, since its an  HTMLCollection
@@ -18,4 +20,5 @@ for (let i = 0; i < link.length; i++) {
 
    }
 
+}
 }
