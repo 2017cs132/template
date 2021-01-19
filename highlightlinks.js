@@ -7,16 +7,16 @@ for (let i = 0; i < link.length; i++) {
 
  
   if (link[i].href.includes('')) {
-     link[i].classList.add("highlight");
+     //link[i].classList.add("highlight");
 
      // change the link background color
-     //link[i].style.backgroundColor = "#1560bd";
+     link[i].style.backgroundColor = "#1560bd";
 
      // change the text color
-     //link[i].style.color = "#ffffff";
+     link[i].style.color = "#ffffff";
 
      // change the font weight
-     //link[i].style.fontWeight = "bold";
+     link[i].style.fontWeight = "bold";
 
    }
 
